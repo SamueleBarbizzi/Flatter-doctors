@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:line_icons/line_icons.dart';
+//import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter_doctors/screens/loginpage.dart';
 import 'package:flutter_doctors/screens/infopage.dart';
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
     print('${HomePage.routename} built');
     return Scaffold(
       appBar: AppBar(
-        title: const Row(children: [
+        title: Row(children: [
           //Image.asset("assets/images/logo.png", width: 20),
           Text(HomePage.routename,
               style: TextStyle(fontWeight: FontWeight.bold))
@@ -180,37 +180,25 @@ class _HomePageState extends State<HomePage> {
                                                   value:
                                                       0.5, // da mettere valori
                                                 ),
-                                                child: const Center(
-                                                    child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      top: 35.0),
-                                                  child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          '2481', // mettere numero calorie con dati
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 26,
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      255,
-                                                                      76,
-                                                                      175,
-                                                                      80)),
+                                                child: Center(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.only(top: 35.0),
+                                                      child: Column( mainAxisAlignment: MainAxisAlignment.start,
+                                                        children: [
+                                                          Text( '2481', // mettere numero calorie con dati
+                                                            style: TextStyle(
+                                                                fontWeight: FontWeight.bold,
+                                                                fontSize: 26,
+                                                                color: Color.fromARGB(255,76,175,80)),
+                                                          ),
+                                                          Text('Remaining',
+                                                            style: TextStyle(fontSize: 14),
+                                                          )]
                                                         ),
-                                                        Text(
-                                                          'Remaining',
-                                                          style: TextStyle(
-                                                              fontSize: 14),
-                                                        )
-                                                      ]),
-                                                ))),
-                                          ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           const SizedBox(
                                               width: 30, height: 150),
                                           Align(
