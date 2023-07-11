@@ -14,10 +14,13 @@ class visualEditRecipePage extends StatelessWidget {
     print('${visualEditRecipePage.routename} built');
     return Scaffold(
       appBar: AppBar(
+        title: Row(children: [
+          const Text(visualEditRecipePage.routename, 
+          style: const TextStyle(fontWeight: FontWeight.bold))]),
+        centerTitle: true,
         leading: BackButton(
-            onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MainNavigator())),
-          ),
-        title: Text(visualEditRecipePage.routename), centerTitle: true),
+          onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MainNavigator())),
+        ),),
       body: Text(''),
     );
   }

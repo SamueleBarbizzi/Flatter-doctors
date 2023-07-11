@@ -1,16 +1,17 @@
-// ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api, avoid_print, unused_element
+// ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter_doctors/screens/loginpage.dart';
 import 'package:flutter_doctors/screens/accountpage.dart';
-import 'package:flutter_doctors/screens/favoritespage.dart';
+import 'package:flutter_doctors/screens/visualEditRecipepage.dart';
 import 'package:flutter_doctors/screens/homepage.dart';
 
 class MainNavigator extends StatefulWidget {
   const MainNavigator({Key? key}) : super(key: key);
 
   static const routename = 'MainNavigator';
+  
 
   @override
   _MainNavigatorState createState() => _MainNavigatorState();
@@ -23,7 +24,7 @@ class _MainNavigatorState extends State<MainNavigator> {
 
   final List<Widget> _screens = [
     const HomePage(),
-    FavoritesPage(),
+    visualEditRecipePage(),
     AccountPage(),
   ];
 
@@ -73,8 +74,8 @@ class _MainNavigatorState extends State<MainNavigator> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(MdiIcons.heart),
-            label: 'Favorite'
+            icon: Icon(MdiIcons.foodForkDrink),
+            label: 'Your Meal',
           ),
           BottomNavigationBarItem(
             icon: Icon(MdiIcons.account),
@@ -88,7 +89,7 @@ class _MainNavigatorState extends State<MainNavigator> {
         selectedItemColor: Colors.white,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         unselectedIconTheme: const IconThemeData(color: Colors.white70),
-        unselectedItemColor: Colors.white70,        
+        unselectedItemColor: Colors.white70,              
         onTap: _onItemTapped,
         currentIndex: _currentIndex,
       ),
