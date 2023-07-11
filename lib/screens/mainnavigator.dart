@@ -24,7 +24,7 @@ class _MainNavigatorState extends State<MainNavigator> {
 
   final List<Widget> _screens = [
     const HomePage(),
-    visualEditRecipePage(),
+    VisualEditRecipe(),
     AccountPage(),
   ];
 
