@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-//import 'package:line_icons/line_icons.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:flutter_doctors/screens/loginpage.dart';
 import 'package:flutter_doctors/screens/infopage.dart';
@@ -119,6 +119,24 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          SizedBox(height: 5),
+                          IconButton(
+                            color: Color.fromARGB(255, 14, 75, 16),
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            icon: Icon(LineIcons.angleDoubleLeft),
+                            onPressed: _decrementDate,
+                          ),
+                          Text(date, style: TextStyle(fontFamily: "Lato", fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 14, 75, 16))),
+                          IconButton(
+                            color: Color.fromARGB(255, 14, 75, 16),
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            icon: Icon(LineIcons.angleDoubleRight),
+                            onPressed: () => _incrementDate(dataLength),
+                          ),
+                        ],
+                      ),
                           Align(
                             alignment: Alignment.center,
                             child: Container(
@@ -313,10 +331,7 @@ class _HomePageState extends State<HomePage> {
                                 )
                               ],
                             ),
-                          ),
-                        ],
-                      ),
-                      Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
@@ -346,13 +361,9 @@ class _HomePageState extends State<HomePage> {
                                     ]),
                                 label: const Text('Breakfast'),
                                 //onPressed: (){},
-                                onPressed: () {
-                                  setState(
-                                    () {
-                                      _isShowBreakfast = !_isShowBreakfast;
-                                    },
-                                  );
-                                },
+                                onPressed: () {},
+                                  //_toIngredientsPage(context); },
+                                  //() {_isShowBreakfast = !_isShowBreakfast;},);},
                                 style: ElevatedButton.styleFrom(
                                     //padding: EdgeInsets.fromLTRB(0, 20, 20, 20),
                                     backgroundColor: Colors.lightGreen,
@@ -372,9 +383,10 @@ class _HomePageState extends State<HomePage> {
                                 visible: _isShowBreakfast,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    String mealName = 'BREAKFAST';
-                                    _toIngredientsPage(context, mealName);
+                                    //String mealName = 'BREAKFAST';
+                                    //_toIngredientsPage(context, mealName);
                                   },
+                                  child: Icon(MdiIcons.pencil, color: Color.fromARGB(255, 14, 75, 16), size: 27.5),
                                   style: ElevatedButton.styleFrom(
                                       //padding: EdgeInsets.fromLTRB(0, 20, 20, 20),
                                       backgroundColor: Colors.lightGreen,
@@ -390,10 +402,6 @@ class _HomePageState extends State<HomePage> {
                                           color:
                                               Color.fromARGB(255, 14, 75, 16),
                                           width: 2.5)),
-                                  child: Icon(MdiIcons.pencil,
-                                      color:
-                                          const Color.fromARGB(255, 14, 75, 16),
-                                      size: 27.5),
                                 ),
                               ),
                             ],
@@ -439,9 +447,10 @@ class _HomePageState extends State<HomePage> {
                                 visible: _isShowLunch,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    String mealName = 'LUNCH';
-                                    _toIngredientsPage(context, mealName);
+                                    //String mealName = 'LUNCH';
+                                    //_toIngredientsPage(context, mealName);
                                   },
+                                  child: Icon(MdiIcons.pencil, color: Color.fromARGB(255, 14, 75, 16), size: 27.5),
                                   style: ElevatedButton.styleFrom(
                                       //padding: EdgeInsets.fromLTRB(0, 20, 50, 20),
                                       backgroundColor: Colors.lightGreen,
@@ -457,10 +466,6 @@ class _HomePageState extends State<HomePage> {
                                           color:
                                               Color.fromARGB(255, 14, 75, 16),
                                           width: 2.5)),
-                                  child: Icon(MdiIcons.pencil,
-                                      color:
-                                          const Color.fromARGB(255, 14, 75, 16),
-                                      size: 27.5),
                                 ),
                               ),
                             ],
@@ -505,9 +510,10 @@ class _HomePageState extends State<HomePage> {
                                 visible: _isShowDinner,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    String mealName = 'DINNER';
-                                    _toIngredientsPage(context, mealName);
+                                    //String mealName = 'DINNER';
+                                    //_toIngredientsPage(context, mealName);
                                   },
+                                  child: Icon(MdiIcons.pencil, color: Color.fromARGB(255, 14, 75, 16), size: 27.5),
                                   style: ElevatedButton.styleFrom(
                                       shape: const CircleBorder(),
                                       padding: const EdgeInsets.all(13),
@@ -518,10 +524,6 @@ class _HomePageState extends State<HomePage> {
                                           color:
                                               Color.fromARGB(255, 14, 75, 16),
                                           width: 3)),
-                                  child: Icon(MdiIcons.pencil,
-                                      color:
-                                          const Color.fromARGB(255, 14, 75, 16),
-                                      size: 27.5),
                                 ),
                               ),
                             ],
@@ -567,6 +569,7 @@ class _HomePageState extends State<HomePage> {
                                 visible: _isShowSnack,
                                 child: ElevatedButton(
                                   onPressed: () {},
+                                  child: Icon(MdiIcons.pencil, color: Color.fromARGB(255, 14, 75, 16), size: 27.5),
                                   style: ElevatedButton.styleFrom(
                                       //padding: EdgeInsets.all(20.0),
                                       backgroundColor: Colors.lightGreen,
@@ -582,15 +585,12 @@ class _HomePageState extends State<HomePage> {
                                           color:
                                               Color.fromARGB(255, 14, 75, 16),
                                           width: 2.5)),
-                                  child: Icon(MdiIcons.pencil,
-                                      color:
-                                          const Color.fromARGB(255, 14, 75, 16),
-                                      size: 27.5),
                                 ),
                               ),
                             ],
                           ),
                         ],
+                      ),
                       ),
                     ],
                   );
